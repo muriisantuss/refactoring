@@ -35,8 +35,9 @@ public class Node<T> {
     this.next = next;
   }
 
-
-
-
+  @Override
+  public String toString() {
+    return "Node [element=" + element + ", next=" + next + "]";
+  }
 
 }
