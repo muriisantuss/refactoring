@@ -40,4 +40,7 @@ public class Node<T> {
     return "Node [element=" + element + ", next=" + next + "]";
   }
 
+
+
+
 }

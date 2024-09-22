@@ -36,6 +36,14 @@ public class linkedList<T> {
     return "The list is empty.";
   }
 
+  public String thereIsNoPosition() {
+    return "There is no position!";
+  }
+
+  public boolean isNotPositon(int position) {
+    return !(position >= 0 || position <= this.size);
+  }
+
   // linked list methods
   public T addLast(T element) {
     Node<T> item = new Node<>(element);
@@ -64,6 +72,44 @@ public class linkedList<T> {
     return element;
   }
 
+  public void add(int position, T element) {
+    if (this.isNotPositon(position)) {
+      this.thereIsNoPosition();
+    }
+    if (position == 0) {
+      this.addFirst(element);
+      return;
+    }
+    if (position == this.size) {
+      this.addLast(element);
+      return;
+    }
+    if (!this.isNotPositon(position)) {
+      Node<T> prevNode = this.searchNode(position - 1);
+      Node<T> nextNode = prevNode.getNext();
+      Node<T> newNode = new Node<T>(element, nextNode);
+      prevNode.setNext(newNode);
+    }
+
+    this.addSize();
+  }
+
+  private Node<T> searchNode(int position) {
+    if (this.isNotPositon(position)) {
+      throw new IllegalArgumentException(this.thereIsNoPosition());
+    }
+    Node<T> currentNode = this.first;
+    for (int b = 0; b < position; b++) {
+      currentNode = currentNode.getNext();
+
+    }
+    return currentNode;
+  }
+
+  public T searchByPosition(int position) {
+    return this.searchNode(position).getElement();
+  }
+
   public String travel() {
     if (this.empty()) {
       return "[]";
@@ -75,7 +121,7 @@ public class linkedList<T> {
       System.out.print(current.getElement() + ", ");
       current = current.getNext();
     }
-    
+
     return current.getElement() + "]";
   }
 

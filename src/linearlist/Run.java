@@ -8,16 +8,20 @@ public class Run {
 
   }
 
-  public static void testGeneral(){
+  public static void testGeneral() {
     linkedList<Integer> list = new linkedList<>();
-    list.addFirst(2); 
+    list.addFirst(2);
     list.addFirst(1);
-    list.addLast(3);
+
     list.addLast(4);
     list.addLast(5);
-    
+    list.add(2, 3);
+    System.out.println("Element: " + list.searchByPosition(2));
+
     System.out.println(list);
+
   }
+
   public static void addLast() {
     linkedList<Integer> list = new linkedList<>();
 
