@@ -2,11 +2,22 @@ package linearlist;
 
 public class Run {
   public static void main(String[] args) {
-    addFirst();
-    addLast();
+    // addFirst();
+    // addLast();
+    testGeneral();
 
   }
 
+  public static void testGeneral(){
+    linkedList<Integer> list = new linkedList<>();
+    list.addFirst(2); 
+    list.addFirst(1);
+    list.addLast(3);
+    list.addLast(4);
+    list.addLast(5);
+    
+    System.out.println(list);
+  }
   public static void addLast() {
     linkedList<Integer> list = new linkedList<>();
 
@@ -16,6 +27,7 @@ public class Run {
     list.addLast(3);
 
     System.out.print(list.toString());
+
   }
 
   public static void addFirst() {

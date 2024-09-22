@@ -40,7 +40,7 @@ public class linkedList<T> {
   public T addLast(T element) {
     Node<T> item = new Node<>(element);
     if (this.empty()) {
-      addFirst(element);
+      return addFirst(element);
     }
     if (this.notEmpty()) {
       this.last.setNext(item);
@@ -52,11 +52,11 @@ public class linkedList<T> {
   }
 
   public T addFirst(T element) {
-    if(empty()){
+    if (empty()) {
       Node<T> item = new Node<T>(element);
       this.first = this.last = item;
     }
-    if(notEmpty()){
+    if (notEmpty()) {
       Node<T> newNode = new Node<T>(element, this.first);
       this.first = newNode;
     }
@@ -64,10 +64,24 @@ public class linkedList<T> {
     return element;
   }
 
+  public String travel() {
+    if (this.empty()) {
+      return "[]";
+    }
+
+    Node<T> current = this.first;
+    System.out.print("[");
+    for (int i = 0; i < this.size - 1; i++) {
+      System.out.print(current.getElement() + ", ");
+      current = current.getNext();
+    }
+    
+    return current.getElement() + "]";
+  }
 
   @Override
   public String toString() {
-    return "linkedList [first=" + first + ", last=" + last + ", size=" + size + "]\n";
+    return travel();
   }
 
 }
