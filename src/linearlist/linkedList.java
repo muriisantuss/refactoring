@@ -20,6 +20,10 @@ public class linkedList<T> {
     return (this.size > 0);
   }
 
+  public boolean sizeEqualOne() {
+    return (this.size == 1);
+  }
+
   public int addSize() {//
     return this.size++;
   }
@@ -28,11 +32,15 @@ public class linkedList<T> {
     return this.size--;
   }
 
+  public String theListEmpty() {
+    return "The list is empty.";
+  }
+
   // linked list methods
-  public T add(T element) {
+  public T addLast(T element) {
     Node<T> item = new Node<>(element);
     if (this.empty()) {
-      this.first = item;
+      addFirst(element);
     }
     if (this.notEmpty()) {
       this.last.setNext(item);
@@ -42,6 +50,20 @@ public class linkedList<T> {
 
     return element;
   }
+
+  public T addFirst(T element) {
+    if(empty()){
+      Node<T> item = new Node<T>(element);
+      this.first = this.last = item;
+    }
+    if(notEmpty()){
+      Node<T> newNode = new Node<T>(element, this.first);
+      this.first = newNode;
+    }
+    this.addSize();
+    return element;
+  }
+
 
   @Override
   public String toString() {
