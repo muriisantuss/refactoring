@@ -4,17 +4,17 @@ public class Node {
   private int element[];
   private int top;
 
-  public Node(int[] element, int top) {
-    this.element = element;
-    this.top = top;
+  public Node(int size) {
+    this.element = new int[size];
+    this.top = -1;
   }
 
   public int[] getElement() {
     return element;
   }
 
-  public void setElement(int[] element) {
-    this.element = element;
+  public void setElement(int index, int value) {
+    this.element[index] = value;
   }
 
   public int getTop() {
