@@ -2,15 +2,17 @@ package stack;
 
 public class Run {
   public static void main(String[] args) {
-    Stack s = new Stack(3);
-    s.push(1);
-    s.push(2);
-    s.push(3);
+    Stack s = new Stack(10);
 
+    s.push(19);
+    s.push(29);
+    s.push(39);
+    
+    s.show();
+    
     while (!s.isEmpty()) {
-      System.out.print("Removed element"+ s.pop());
+      System.out.println("Removed element "+ s.pop());
     }
 
-    System.out.println("Top: " + s.top());
   }
 }

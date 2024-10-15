@@ -39,4 +39,14 @@ public class Stack extends Node {
     return (getTop() == getElement().length - 1);
   }
 
+  public void show() {
+    if (this.isEmpty()) {
+      throw new RuntimeException("Stack's empty");
+    } 
+
+    for (int i = getTop(); i >= 0; i--) {
+      System.out.println(" -" + getElement()[i] + "- ");
+    };
+  }
+
 }
