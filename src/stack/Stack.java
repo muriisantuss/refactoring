@@ -6,6 +6,24 @@ public class Stack extends Node {
     super(size);
   }
 
+  public void push(int value) {
+    if (this.isFull()) {
+      throw new RuntimeException("Stack's full");
+    }
+    this.setTop(getTop() + 1);
+    setElement(getTop(), value);
+  }
+
+  public int pop() {
+    if (this.isEmpty()) {
+      throw new RuntimeException("Stack's empty");
+    }
+    int arrayElements = getElement()[getTop()];
+    this.setTop(getTop() - 1);
+
+    return arrayElements;
+  }
+
   public boolean isEmpty() {
     return (getTop() == -1);
   }
