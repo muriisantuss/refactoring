@@ -8,8 +8,9 @@ public class Run {
     s.push(3);
 
     while (!s.isEmpty()) {
-      System.out.print(s.pop());
+      System.out.print("Removed element"+ s.pop());
     }
 
+    System.out.println("Top: " + s.top());
   }
 }

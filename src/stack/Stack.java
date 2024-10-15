@@ -24,6 +24,13 @@ public class Stack extends Node {
     return arrayElements;
   }
 
+  public int top() {
+    if (this.isEmpty()) {
+      throw new RuntimeException("Stack's empty");
+    }
+    return getElement()[getTop()];
+  }
+
   public boolean isEmpty() {
     return (getTop() == -1);
   }
