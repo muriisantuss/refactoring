@@ -1,34 +1,38 @@
 package stack;
 
-public class Stack extends Node {
+public class Stack<T> extends Node<T> {
 
   public Stack(int size) {
     super(size);
   }
 
-  public void push(int value) {
+  public void push(T value) {
     if (this.isFull()) {
       throw new RuntimeException("Stack's full");
     }
     this.setTop(getTop() + 1);
     setElement(getTop(), value);
   }
-
-  public int pop() {
+  
+  @SuppressWarnings("unchecked")
+  public T pop() {
     if (this.isEmpty()) {
       throw new RuntimeException("Stack's empty");
     }
-    int arrayElements = getElement()[getTop()];
+    T arrayElements = (T) getElement()[getTop()];
     this.setTop(getTop() - 1);
 
     return arrayElements;
   }
 
-  public int top() {
+  @SuppressWarnings("unchecked")
+  public T top() {
     if (this.isEmpty()) {
       throw new RuntimeException("Stack's empty");
     }
-    return getElement()[getTop()];
+    
+    return (T) getElement()[getTop()];
+    
   }
 
   public boolean isEmpty() {
