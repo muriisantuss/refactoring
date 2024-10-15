@@ -66,7 +66,7 @@ public class linkedList<T> {
     }
     if (notEmpty()) {
       Node<T> newNode = new Node<T>(element, this.first);
-      this.first = newNode;
+       this.first = newNode;
     }
     this.addSize();
     return element;
@@ -84,7 +84,7 @@ public class linkedList<T> {
       this.addLast(element);
       return;
     }
-    if (!this.isNotPositon(position)) {
+    if(!this.isNotPositon(position)){
       Node<T> prevNode = this.searchNode(position - 1);
       Node<T> nextNode = prevNode.getNext();
       Node<T> newNode = new Node<T>(element, nextNode);
