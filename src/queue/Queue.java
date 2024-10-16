@@ -1,25 +1,27 @@
 package queue;
 
-public class Queue extends Node {
+public class Queue<T> extends Node<T> {
     public Queue(int size) {
         super(size);
     }
 
-    public void enqueue(int value) {
+    public void enqueue(T value) {
         if (this.isFull()) {
-            throw new RuntimeException("Queue's full!");
+            throw new RuntimeException("Queue's Full!");
         }
-        setValues(getTotal(), value);
-        setLast(getTotal());
-        setTotal((getTotal() + 1) % getValues().length);
+        setValues(getLast(), value);
+        setLast((getLast() + 1) % getValues().length);
+        setTotal(getTotal() + 1);
     }
+    
 
-    public int dequeue() {
+    @SuppressWarnings("unchecked")
+    public T dequeue() {
         if (this.isEmpty()) {
             throw new RuntimeException("Queue's empty!");
         }
 
-        int element = getValues()[getFirst()];
+        T element = (T) getValues()[getFirst()];
         setFirst((getFirst() + 1) % getValues().length);
         setTotal(getTotal() - 1);
         return element;
@@ -37,9 +39,10 @@ public class Queue extends Node {
         if (this.isEmpty()) {
             throw new RuntimeException("Queue's empty!");
         }
-        
+
         for (int travel = 0; travel < getTotal(); travel++) {
-            System.out.println("Element[" + travel + "] " + getValues()[travel]);
+            int index = (getFirst() + travel) % getValues().length;
+            System.out.println("Name[" + travel + "] " + getValues()[index]);
         }
     }
 }

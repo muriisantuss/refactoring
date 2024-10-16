@@ -1,24 +1,24 @@
 package queue;
 
-public class Node {
-  private int values[];
+public class Node<T> {
+  private Object[] values;
   private int first;
   private int last;
   private int total;
 
   public Node(int size) {
-    this.values = new int[size];
+    this.values = new Object[size];
     this.first = 0;
     this.last = 0;
     this.total = 0;
   }
 
-  public int[] getValues() {
+  public Object[] getValues() {
     return values;
   }
 
-  public void setValues(int index, int values) {
-    this.values[index]= values;
+  public void setValues(int index, T values) {
+    this.values[index] = values;
   }
 
   public int getFirst() {
