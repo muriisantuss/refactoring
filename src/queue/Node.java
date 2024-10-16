@@ -17,8 +17,8 @@ public class Node {
     return values;
   }
 
-  public void setValues(int[] values) {
-    this.values = values;
+  public void setValues(int index, int values) {
+    this.values[index]= values;
   }
 
   public int getFirst() {
