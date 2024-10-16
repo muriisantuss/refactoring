@@ -8,7 +8,11 @@ public class Run {
         q.enqueue(29);
         q.enqueue(39);
 
-        while(!q.isEmpty()){
+        q.show();
+
+        System.out.println();
+        
+        while (!q.isEmpty()) {
             System.out.println("Element removed: " + q.dequeue());
         }
     }

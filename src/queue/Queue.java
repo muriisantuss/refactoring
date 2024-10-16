@@ -32,4 +32,14 @@ public class Queue extends Node {
     public boolean isFull() {
         return (getTotal() == getValues().length);
     }
+
+    public void show() {
+        if (this.isEmpty()) {
+            throw new RuntimeException("Queue's empty!");
+        }
+        
+        for (int travel = 0; travel < getTotal(); travel++) {
+            System.out.println("Element[" + travel + "] " + getValues()[travel]);
+        }
+    }
 }
